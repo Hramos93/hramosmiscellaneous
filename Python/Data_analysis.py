@@ -8,6 +8,20 @@ import pandas as pd
 import seaborn as sns
 import matplotlibt.pyplot as plt
 
+##
+###Herarchy index
+family = Series(['Father', 'Mother', 'Son_1','Father', 'Mother', 'Son_1', 'Mother', 'Son_1','Mother', 'Son_1'],
+               index=[['Ramos','Ramos','Ramos','Perez','Perez','Perez','Gonzalez','Gonzalez','Desconocido','Desconocido'],
+                [1,2,3,1,2,3,2,3,2,3]])
+
+#proporties
+family.index
+family[:, 2] #show case inner level
+family.unstack() #rearange for null case and return DataFrame
+df_family.index.names = ['lastname', 'Id'] #Multiindex
+family.swaplevel('lastname', 'Id')#reordering
+
+
 
 #
 ##
