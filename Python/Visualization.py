@@ -14,3 +14,9 @@ plt.show()
 sns.distplot(train['Age'], hist=True, kde=True, bins=int(180/5), color = 'darkblue', 
              hist_kws={'edgecolor':'black'},
              kde_kws={'linewidth': 4})
+#Boxplot, very useful to see outliers
+#boxplot
+sns.set(style="whitegrid")
+tips = sns.load_dataset("tips")
+ax = sns.boxplot(x=train["Age"])
+
