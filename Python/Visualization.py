@@ -1,6 +1,18 @@
 #libraries
 import seaborn as sns
+import matplotlib.pyplot as plot
 
+#
+##
+###
+####STRUCTURE BASIC TO PLOT
+fig = plt.figure(); ax = fig.add_subplot(1, 1, 1)  #SETTING PLOT
+ax.plot(randn(1000).cumsum(), 'k', label='one', color='r')# PLOT1
+ax.plot(randn(1000).cumsum(), 'k--', label='two', color= 'b')#PLOT2
+ax.plot(randn(1000).cumsum(), 'k.', label='three', color='g')#PLOT 3
+ax.set_title('My first matplotlib plot') #TITLE
+ax.legend(loc='best')#LENGEND
+ax.set_xlabel('Stages')#LABEL X
 
 #
 ##
