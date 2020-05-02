@@ -1,0 +1,13 @@
+PARSE_DATA
+
+WildCard (%)
+
+#searching for non profits with 'help' in their name
+SELECT
+    ein,
+    name
+FROM 
+´biqquery-public-data.irs_990.irs_990_ein´
+WHERE
+ LOWER(name) LIKE '%help%'   ###the % means  of any number or characters before h and any number after the p in help
+ LIMIT 10; 
