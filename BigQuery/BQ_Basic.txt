@@ -1,3 +1,5 @@
+Enable SQL standards: #standardSQL
+
 PARSE_DATA
 
 WildCard (%)
@@ -11,3 +13,35 @@ FROM
 WHERE
  LOWER(name) LIKE '%help%'   ###the % means  of any number or characters before h and any number after the p in help
  LIMIT 10; 
+
+# select and count 
+#standardSQL
+SELECT
+COUNT(DISTINCT fullVisitorId) AS visitor_count
+, hits_page_pageTitle
+FROM `data-to-insights.ecommerce.rev_transactions`
+GROUP BY hits_page_pageTitle
+
+#Select city, transacction and count visit web page with distinct, 
+SELECT
+geoNetwork_city,
+SUM(totals_transactions) AS totals_transactions,
+COUNT( DISTINCT fullVisitorId) AS distinct_visitors
+FROM
+`data-to-insights.ecommerce.rev_transactions`
+GROUP BY geoNetwork_city
+
+#You cannot filter on aliased fields within the `WHERE` clause
+#You cannot filter aggregated fields in the `WHERE` clause (use `HAVING` instead)
+
+#standardSQL
+SELECT
+geoNetwork_city,
+SUM(totals_transactions) AS total_products_ordered,
+COUNT( DISTINCT fullVisitorId) AS distinct_visitors,
+SUM(totals_transactions) / COUNT( DISTINCT fullVisitorId) AS avg_products_ordered
+FROM
+`data-to-insights.ecommerce.rev_transactions`
+GROUP BY geoNetwork_city
+HAVING avg_products_ordered > 20
+ORDER BY avg_products_ordered DESC
