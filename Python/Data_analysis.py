@@ -67,3 +67,36 @@ print(' No outliers:', len(outliers_removed_1),'\n outliers: ', len(outliers_1))
 #  here I used method of interquartile range  
 train = train.drop(train[(train['Age'] > upper_1) | (train['Age'] < lower_1)].index)
 print('Number of Instances after outliers removal: {}'.format(len(train)))
+
+####
+#build dataframe
+people = DataFrame(np.random.randn(5, 5),
+    columns=['a', 'b', 'c', 'd', 'e'],
+    index=['Joe', 'Steve', 'Wes', 'Jim', 'Travis'])
+#dictionary
+    mapping = {'a': 'red', 'b': 'red', 'c': 'blue',
+ 'd': 'blue', 'e': 'red', 'f' : 'orange'}
+#to people to do groupby with mapping, and sum axis(X(columns))
+by_column = people.groupby(mapping, axis=1)
+by_column.sum()
+
+##
+###
+####
+#mapping functions. 
+functions = ['count', 'mean', 'max']
+result = x.agg(functions)
+
+##
+###
+####
+#####
+grouped.agg({'tip_pct' : ['min', 'max', 'mean', 'std'],
+ 'size' : 'sum'})
+
+ ##
+ ###
+ ####
+ #####
+ #add prefix 
+ k1_means = df.groupby('key1').mean().add_prefix('mean_')

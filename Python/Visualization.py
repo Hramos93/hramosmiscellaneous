@@ -2,7 +2,10 @@
 import seaborn as sns
 import matplotlib.pyplot as plot
 
-#
+#savefigured
+plt.savefig('figpath.png')
+
+
 ##
 ###
 ####STRUCTURE BASIC TO PLOT
